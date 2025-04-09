@@ -9,6 +9,7 @@ import Vendors from '@/components/Vendors';
 import ITChallenges from '@/components/ITChallenges';
 import CaseStudies from '@/components/CaseStudies';
 import ContactForm from '@/components/ContactForm';
+import CEO from '@/components/CEO';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
         <Services />
         <Solutions />
         <Industries />
+        <CEO />
         <Vendors />
         <ITChallenges />
         <CaseStudies />
