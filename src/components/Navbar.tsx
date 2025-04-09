@@ -23,26 +23,26 @@ const Navbar = () => {
           {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-              Courses
+              Home
             </a>
             <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-              Pricing
-            </a>
-            <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-              For Business
+              Solutions
             </a>
             <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium">
               About Us
             </a>
+            <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium">
+              Case Studies
+            </a>
+            <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium">
+              Contact Us
+            </a>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="outline" className="border-bigebrains-blue text-bigebrains-blue hover:bg-bigebrains-blue hover:text-white">
-              Login
-            </Button>
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center">
             <Button className="bg-bigebrains-blue hover:bg-bigebrains-darkblue text-white">
-              Sign Up
+              Schedule a free consultation
             </Button>
           </div>
 
@@ -66,23 +66,23 @@ const Navbar = () => {
           <div className="md:hidden pt-4 pb-2">
             <div className="flex flex-col space-y-3">
               <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2">
-                Courses
+                Home
               </a>
               <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2">
-                Pricing
-              </a>
-              <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2">
-                For Business
+                Solutions
               </a>
               <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2">
                 About Us
               </a>
-              <div className="flex flex-col pt-3 space-y-3">
-                <Button variant="outline" className="border-bigebrains-blue text-bigebrains-blue hover:bg-bigebrains-blue hover:text-white w-full">
-                  Login
-                </Button>
+              <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2">
+                Case Studies
+              </a>
+              <a href="#" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2">
+                Contact Us
+              </a>
+              <div className="pt-3">
                 <Button className="bg-bigebrains-blue hover:bg-bigebrains-darkblue text-white w-full">
-                  Sign Up
+                  Schedule a free consultation
                 </Button>
               </div>
             </div>

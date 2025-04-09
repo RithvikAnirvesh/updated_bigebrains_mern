@@ -2,9 +2,13 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import FeaturedCourses from '@/components/FeaturedCourses';
-import Testimonials from '@/components/Testimonials';
-import WhyChooseUs from '@/components/WhyChooseUs';
+import Services from '@/components/Services';
+import Solutions from '@/components/Solutions';
+import Industries from '@/components/Industries';
+import Vendors from '@/components/Vendors';
+import ITChallenges from '@/components/ITChallenges';
+import CaseStudies from '@/components/CaseStudies';
+import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -13,9 +17,13 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <Hero />
-        <FeaturedCourses />
-        <Testimonials />
-        <WhyChooseUs />
+        <Services />
+        <Solutions />
+        <Industries />
+        <Vendors />
+        <ITChallenges />
+        <CaseStudies />
+        <ContactForm />
       </main>
       <Footer />
     </div>
