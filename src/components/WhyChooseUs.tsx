@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Book, Users, Clock, Video, Certificate } from "lucide-react";
+import { Award, Book, Users, Clock, Video, Medal } from "lucide-react";
 
 const features = [
   {
@@ -31,7 +31,7 @@ const features = [
     id: 5,
     title: "Industry Recognized",
     description: "Certificates that are valued by employers worldwide.",
-    icon: <Certificate className="h-10 w-10 text-bigebrains-blue" />,
+    icon: <Medal className="h-10 w-10 text-bigebrains-blue" />,
   },
   {
     id: 6,
