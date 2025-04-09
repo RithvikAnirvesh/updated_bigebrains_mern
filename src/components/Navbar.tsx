@@ -16,7 +16,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <span className="text-bigebrains-blue text-2xl font-bold">BigeBrains</span>
+              <img 
+                src="/lovable-uploads/59e46791-d996-4a67-b05e-14bd7ed6c172.png" 
+                alt="BigEBrains Logo" 
+                className="h-10 mr-2"
+              />
             </a>
           </div>
 
