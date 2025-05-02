@@ -264,7 +264,8 @@ const Footer = () => {
         {/* Logo and Description */}
         <div>
           <img
-            src="/lovable-uploads/whitebeb.png"
+          src="/lovable-uploads/footerbeb%20logo.PNG"
+            // src="/lovable-uploads/footerbeb logo.png"
             alt="BigEBrains Logo"
             className="h-16 mb-4"
           />

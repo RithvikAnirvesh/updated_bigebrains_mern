@@ -1,98 +1,58 @@
-
-// import React from 'react';
-
-// const Vendors = () => {
-//   return (
-//     <section className="py-20 bg-bigebrains-gray">
-//       <div className="container mx-auto px-4 md:px-6">
-//         <div className="text-center mb-16">
-//           <p className="text-bigebrains-blue font-semibold mb-2">WHAT WE USE</p>
-//           <h2 className="text-3xl md:text-4xl font-bold text-bigebrains-darkblue mb-4">
-//             Bringing the best IT vendors to you.
-//           </h2>
-//           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-//             Working only with the best, to ensure the quality of our services, and to bring state of the art technology to those who need it.
-//           </p>
-//         </div>
-
-//         <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-//           {/* Placeholder for vendor logos */}
-//           {[1, 2, 3, 4, 5, 6].map((item) => (
-//             <div key={item} className="bg-white p-6 rounded-lg shadow-md w-32 h-32 flex items-center justify-center">
-//               <div className="w-full h-12 bg-gray-200 rounded animate-pulse"></div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Vendors;
-
-//////////////////////////////////////////////////////////////////////
-
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Minus, Plus } from 'lucide-react';
 
 const vendorDetails = [
   {
-    title: "Collaboration",
+    title: "AI-Driven Collaboration",
     description:
-      "Despite current cloud technologies, your users will be working in a familiar Microsoft Office environment with broad compatibility and low-threshold access.",
+      "Empower teams with AI-enhanced collaboration using tools like real-time transcription, smart scheduling, sentiment analysis, and adaptive productivity environments within the Microsoft ecosystem.",
     links: [
-      "Exchange Online",
-      "SharePoint Online",
-      "Defender for 365",
-      "Autopilot",
-      "Office Apps",
-      "Windows 365",
+      "Copilot for Microsoft 365",
+      "Exchange Online (AI Insights)",
+      "SharePoint Syntex",
+      "Microsoft Teams AI",
+      "Windows 365 + Copilot",
+      "Autopilot Automation",
     ],
   },
   {
-    title: "Cloud Platform",
+    title: "AI Cloud Orchestration",
     description:
-      "Customized cloud platform designed to boost performance, reduce IT expenses, and enable safe and dependable access to your company’s data from any device, at any time, and from any location.",
+      "Harness cloud platforms embedded with machine learning to optimize workloads, scale dynamically, and automate resource management with predictive insights.",
     links: [
-      "Amazon Web Services (AWS)",
-      "Microsoft Azure",
-      "Google Cloud Platform (GCP)",
-      "Oracle Cloud",
-      "IBM Cloud (Kyndryl)",
-      "Linode (Akamai)",
+      "AWS SageMaker",
+      "Azure AI Studio",
+      "Vertex AI (GCP)",
+      "Oracle AI Infrastructure",
+      "IBM Watson Cloud",
+      "Akamai AI Delivery",
     ],
   },
   {
-    title: "Network and connectivity",
+    title: "Autonomous Networking",
     description:
-      "Hub, linear, tree, and star network topologies are examples of network topologies, each of which is configured differently to enhance communication between computers or devices.",
+      "AI-enabled network topologies that self-optimize for performance, detect anomalies in real-time, and auto-heal issues before they impact your operations.",
     links: [
-      "Cisco",
-      "Sophos",
-      "Watchguard",
-      "Extreme Networks",
-      "Dell Technologies",
-      "VMware",
-      "Recovery",
-      "Veeam",
-      "Previous",
-      "Next",
-      "WHERE WE DO",
-      "Success stories",
+      "Cisco AI Networking",
+      "Sophos AI Threat Detection",
+      "WatchGuard AI Security",
+      "ExtremeCloud IQ",
+      "Dell AIOps Networking",
+      "VMware Edge AI",
+      "Veeam Intelligent Recovery",
     ],
   },
-  
   {
-    title: "Datacenter & Hosting",
+    title: "AI-Optimized Datacenters",
     description:
-      "Our Data Center is the first in the United States to satisfy the stringent ANSI/TIA-942-rated 4 certificate standards for design, build, and operation.",
+      "Smart datacenters with AI-driven energy optimization, predictive maintenance, and self-regulating system environments certified at the highest global standards.",
     links: [
-      "Amazon Web Services (AWS)",
-      "Microsoft Azure",
-      "RackSpace",
-      "OVH",
-      "DigitalOcean",
-      "Bluehost",
+      "AWS Smart Data Lakes",
+      "Azure Data Factory",
+      "Rackspace AI",
+      "OVH AI Infrastructure",
+      "DigitalOcean App Platform AI",
+      "Bluehost ML-Backed Hosting",
     ],
   },
 ];
@@ -111,17 +71,17 @@ const Vendors = () => {
         <div className="text-center mb-12">
           <p className="text-[#00b3ff] font-semibold mb-2">WHAT WE USE</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Bringing the best IT vendors to you.
+            Empowering innovation with AI-first vendors.
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto">
-            Working only with the best, to ensure the quality of our services, and to bring state of the art technology to those who need it.
+            We integrate the world’s leading AI platforms and technologies to deliver intelligent, automated, and future-ready solutions to your business.
           </p>
         </div>
 
         {/* Section Title */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold bg-[#2b2b2b] inline-block px-6 py-2 rounded-t-xl">
-            Your IT Challenges
+            Intelligent IT Solutions
           </h2>
         </div>
 

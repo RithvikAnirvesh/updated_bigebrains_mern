@@ -1,7 +1,10 @@
 
+
+
 // import React from 'react';
 // import { ShieldCheck, Server, Globe, Smartphone, Code, Cloud, ArrowRight } from "lucide-react";
 // import { Button } from "@/components/ui/button";
+// import { Link } from "react-router-dom"; // ✅ import Link
 
 // const SolutionCard = ({ icon, title, description }) => (
 //   <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -51,9 +54,9 @@
 //   ];
 
 //   return (
-//     <section className="py-20 bg-bigebrains-gray">
+//     <section className="py-20 bg-[#73C2FB]">
 //       <div className="container mx-auto px-4 md:px-6">
-//         <div className="mb-10">
+//         <div className="mb-10 text-center">
 //           <p className="text-bigebrains-blue font-semibold mb-2">HOW WE DO</p>
 //           <h2 className="text-3xl md:text-4xl font-bold text-bigebrains-darkblue mb-4">
 //             Solutions
@@ -67,8 +70,11 @@
 //         </div>
 
 //         <div className="text-center mt-14">
-//           <Button variant="outline" className="border-bigebrains-blue text-bigebrains-blue hover:bg-bigebrains-blue hover:text-white px-8 py-6 text-lg">
-//             View All Solutions
+//           <Button
+//             asChild
+//             className="bg-white text-bigebrains-blue border border-white hover:bg-bigebrains-darkblue hover:text-white px-8 py-6 text-lg"
+//           >
+//             <Link to="/solutions">View All Solutions</Link>
 //           </Button>
 //         </div>
 //       </div>
@@ -77,12 +83,14 @@
 // };
 
 // export default Solutions;
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+/////////////////////////////////////////
 
 import React from 'react';
-import { ShieldCheck, Server, Globe, Smartphone, Code, Cloud, ArrowRight } from "lucide-react";
+import { ShieldCheck, Server, Globe, Smartphone, Code, Cloud, ArrowRight, BrainCircuit } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const SolutionCard = ({ icon, title, description }) => (
   <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
@@ -100,34 +108,34 @@ const SolutionCard = ({ icon, title, description }) => (
 const Solutions = () => {
   const solutions = [
     {
-      icon: <Server className="h-10 w-10" />,
-      title: "Managed Services",
-      description: "Our managed services can assist you in scaling your security and compliance activities more rapidly."
+      icon: <BrainCircuit className="h-10 w-10" />,
+      title: "AI-Powered Managed Services",
+      description: "Leverage AI-driven insights to scale security, compliance, and IT operations seamlessly."
     },
     {
       icon: <Globe className="h-10 w-10" />,
-      title: "IT Consulting & Advisory",
-      description: "Bigebrains assists its clients in identifying the gaps in their IT strategy."
+      title: "AI Strategy & Advisory",
+      description: "Bigebrains helps organizations identify AI opportunities and integrate them into their IT roadmap."
     },
     {
       icon: <ShieldCheck className="h-10 w-10" />,
-      title: "Cyber Security",
-      description: "We assist in reducing cyber risks and preventing the disastrous effects of cyberattacks."
+      title: "AI-Enhanced Cyber Security",
+      description: "Utilize AI-based threat detection and prevention systems to proactively combat cyber risks."
     },
     {
       icon: <Code className="h-10 w-10" />,
-      title: "Web Development",
-      description: "We accomplish high conversion and adoption rates by expertly designing, redesigning web apps."
+      title: "AI-Driven Web Development",
+      description: "Implement AI features like chatbots, personalization, and predictive analytics in web applications."
     },
     {
       icon: <Smartphone className="h-10 w-10" />,
-      title: "Mobile Development",
-      description: "In order to differentiate, we develop native, cross-platform, and progressive web apps with reliable performance."
+      title: "AI-Powered Mobile Apps",
+      description: "Create intelligent mobile applications featuring AI-based recommendations, vision, and speech."
     },
     {
       icon: <Cloud className="h-10 w-10" />,
-      title: "Cloud Services",
-      description: "With Bigebrains, you can take use of cloud services to create an e-commerce solution that is both scalable and secure."
+      title: "AI-Optimized Cloud Solutions",
+      description: "Deploy AI-ready infrastructure and scalable cloud platforms tailored for intelligent applications."
     }
   ];
 
@@ -137,7 +145,7 @@ const Solutions = () => {
         <div className="mb-10 text-center">
           <p className="text-bigebrains-blue font-semibold mb-2">HOW WE DO</p>
           <h2 className="text-3xl md:text-4xl font-bold text-bigebrains-darkblue mb-4">
-            Solutions
+            AI Solutions
           </h2>
         </div>
 
@@ -149,9 +157,10 @@ const Solutions = () => {
 
         <div className="text-center mt-14">
           <Button
+            asChild
             className="bg-white text-bigebrains-blue border border-white hover:bg-bigebrains-darkblue hover:text-white px-8 py-6 text-lg"
           >
-            View All Solutions
+            <Link to="/solutions">View All AI Solutions</Link>
           </Button>
         </div>
       </div>

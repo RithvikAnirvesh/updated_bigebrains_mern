@@ -1,101 +1,3 @@
-// import React, { useState } from "react";
-// import { Button } from "@/components/ui/button";
-// import { Menu, X } from "lucide-react";
-// import { Link } from "react-router-dom";
-
-// const Navbar = () => {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-//   const toggleMenu = () => {
-//     setIsMenuOpen(!isMenuOpen);
-//   };
-
-//   return (
-//     <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
-//       <div className="container mx-auto px-4 md:px-6">
-//         <div className="flex justify-between items-center">
-//           <div className="flex items-center">
-//             <Link to="/" className="flex items-center">
-//               <img
-//                 src="/lovable-uploads/59e46791-d996-4a67-b05e-14bd7ed6c172.png"
-//                 alt="BigEBrains Logo"
-//                 className="h-10 mr-2"
-//               />
-//             </Link>
-//           </div>
-
-//           {/* Desktop menu */}
-//           <div className="hidden md:flex items-center space-x-8">
-//             <Link to="/" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-//               Home
-//             </Link>
-//             <Link to="/solutions" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-//               Solutions
-//             </Link>
-//             <Link to="/about" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-//               About Us
-//             </Link>
-//             <Link to="/case-studies" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-//               Case Studies
-//             </Link>
-//             <Link to="/contact" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-//               Contact Us
-//             </Link>
-//           </div>
-
-//           {/* CTA Button */}
-//           <div className="hidden md:flex items-center">
-//             <Button className="bg-bigebrains-blue hover:bg-bigebrains-darkblue text-white">
-//               Schedule a free consultation
-//             </Button>
-//           </div>
-
-//           {/* Mobile menu button */}
-//           <div className="md:hidden">
-//             <button className="text-gray-600 hover:text-bigebrains-blue" onClick={toggleMenu}>
-//               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-//             </button>
-//           </div>
-//         </div>
-
-//         {/* Mobile menu */}
-//         {isMenuOpen && (
-//           <div className="md:hidden pt-4 pb-2">
-//             <div className="flex flex-col space-y-3">
-//               <Link to="/" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
-//                 Home
-//               </Link>
-//               <Link to="/solutions" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
-//                 Solutions
-//               </Link>
-//               <Link to="/about" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
-//                 About Us
-//               </Link>
-//               <Link to="/case-studies" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
-//                 Case Studies
-//               </Link>
-//               <Link to="/contact" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
-//                 Contact Us
-//               </Link>
-//               <div className="pt-3">
-//                 <Button className="bg-bigebrains-blue hover:bg-bigebrains-darkblue text-white w-full">
-//                   Schedule a free consultation
-//                 </Button>
-//               </div>
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -108,14 +10,31 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Function to scroll to top of page
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center">
+            <Link 
+              to="/" 
+              className="flex items-center"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  scrollToTop();
+                }
+              }}
+            >
               <img
-                src="/lovable-uploads/bbe.png" // ✅ Fixed path
+                src="/lovable-uploads/bbe.png"
                 alt="BigEBrains Logo"
                 className="h-10 mr-2"
               />
@@ -124,12 +43,22 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 relative">
-            <Link to="/" className="text-gray-600 hover:text-bigebrains-blue font-medium">
+            <Link 
+              to="/" 
+              className="text-gray-600 hover:text-bigebrains-blue font-medium"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  scrollToTop();
+                }
+              }}
+            >
               Home
             </Link>
 
             {/* Solutions with dropdown */}
             <div className="relative group">
+              {/* ✅ Clicking this goes to /solutions */}
               <Link
                 to="/solutions"
                 className="text-gray-600 hover:text-bigebrains-blue font-medium cursor-pointer"
@@ -187,6 +116,7 @@ const Navbar = () => {
                       <li>Manufacturing</li>
                       <li>Non profit</li>
                     </ul>
+                    {/* ✅ This Learn more links to /solutions */}
                     <Link
                       to="/solutions"
                       className="text-blue-600 font-semibold mt-4 inline-block hover:underline"
@@ -206,7 +136,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* ✅ Top-right Contact Us */}
+          {/* Contact button */}
           <div className="hidden md:flex items-center">
             <Link
               to="/contact"
@@ -224,11 +154,21 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-2">
             <div className="flex flex-col space-y-3">
-              <Link to="/" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
+              <Link 
+                to="/" 
+                className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" 
+                onClick={(e) => {
+                  toggleMenu();
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    scrollToTop();
+                  }
+                }}
+              >
                 Home
               </Link>
               <Link to="/solutions" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>

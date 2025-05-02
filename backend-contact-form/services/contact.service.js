@@ -9,17 +9,34 @@ const updateExcel = require('../utils/updateExcel');
  */
 const processContactSubmission = async (data) => {
   try {
-    // Save contact to database
-    const newContact = new Contact(data);
-    await newContact.save();
+    // Try to save to database but don't block the whole process if it fails
+    try {
+      const newContact = new Contact(data);
+      await newContact.save();
+      console.log('Contact saved to database successfully');
+    } catch (dbError) {
+      console.error('Error saving to MongoDB, continuing with other operations:', dbError);
+      // Continue processing even if MongoDB fails
+    }
 
     const fullName = `${data.firstName} ${data.lastName}`;
 
-    // Send confirmation email
-    await sendMail(data.email, fullName, data.phone);
+    // Try to send email
+    try {
+      await sendMail(data.email, fullName, data.phone, data);
+      console.log('Email sent successfully');
+    } catch (emailError) {
+      console.error('Error sending email:', emailError);
+      // Don't throw here, try to continue with Excel
+    }
 
-    // Update Excel sheet with contact data
-    updateExcel(data);
+    // Try to update Excel
+    try {
+      updateExcel(data);
+      console.log('Excel updated successfully');
+    } catch (excelError) {
+      console.error('Error updating Excel:', excelError);
+    }
 
     return { success: true };
   } catch (error) {

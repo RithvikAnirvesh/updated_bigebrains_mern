@@ -2,7 +2,7 @@ import React from 'react';
 // Removed Navbar import
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
-import Solutions from '@/components/Solutions';
+import Solutions from '@/components/MainSolutions';
 import Industries from '@/components/Industries';
 import Vendors from '@/components/Vendors';
 import ITChallenges from '@/components/ITChallenges';
@@ -10,6 +10,7 @@ import CaseStudies from '@/components/CaseStudies';
 import ContactForm from '@/components/ContactForm';
 import CEO from '@/components/CEO';
 import Footer from '@/components/Footer';
+import WhyChooseUs from '@/components/WhyChooseUs';
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
         <CEO />
         <Vendors />
         {/* <ITChallenges /> */}
+        <WhyChooseUs />
         <CaseStudies />
         <ContactForm />
       </main>

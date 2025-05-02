@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Industries = () => {
   const industries = [
@@ -61,9 +61,11 @@ const Industries = () => {
         </div>
 
         <div className="text-center mt-14">
-          <Button variant="outline" className="border-bigebrains-blue text-bigebrains-blue hover:bg-bigebrains-blue hover:text-white px-8 py-6 text-lg">
-            View all industries
-          </Button>
+          <Link to="/indus">
+            <Button variant="outline" className="border-bigebrains-blue text-bigebrains-blue hover:bg-bigebrains-blue hover:text-white px-8 py-6 text-lg">
+              View all industries
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

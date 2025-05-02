@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Award, Book, Users, Clock, Video, Medal } from "lucide-react";
 
@@ -6,37 +5,43 @@ const features = [
   {
     id: 1,
     title: "Expert Instructors",
-    description: "Learn from industry professionals with years of real-world experience.",
+    description:
+      "Gain insights from industry veterans who integrate intelligent tools to deliver practical, tech-forward instruction.",
     icon: <Users className="h-10 w-10 text-bigebrains-blue" />,
   },
   {
     id: 2,
     title: "Comprehensive Curriculum",
-    description: "Well-structured courses designed to build your skills from the ground up.",
+    description:
+      "Courses built with adaptive learning paths that intelligently evolve with your progress and performance.",
     icon: <Book className="h-10 w-10 text-bigebrains-blue" />,
   },
   {
     id: 3,
     title: "Flexible Learning",
-    description: "Study at your own pace with lifetime access to course materials.",
+    description:
+      "Learn at your own pace with smart scheduling tools and personalized reminders that keep you on track.",
     icon: <Clock className="h-10 w-10 text-bigebrains-blue" />,
   },
   {
     id: 4,
     title: "High-Quality Content",
-    description: "Engaging video lessons and resources updated regularly.",
+    description:
+      "Dynamic video lessons and interactive content powered by intelligent recommendations and regular optimizations.",
     icon: <Video className="h-10 w-10 text-bigebrains-blue" />,
   },
   {
     id: 5,
     title: "Industry Recognized",
-    description: "Certificates that are valued by employers worldwide.",
+    description:
+      "Earn credentials built on globally aligned standards, supported by intelligent evaluation and skill mapping.",
     icon: <Medal className="h-10 w-10 text-bigebrains-blue" />,
   },
   {
     id: 6,
     title: "Proven Results",
-    description: "Join thousands of successful students who have transformed their careers.",
+    description:
+      "Thousands have transformed their careers using a platform that learns from learners—delivering smarter success paths.",
     icon: <Award className="h-10 w-10 text-bigebrains-blue" />,
   },
 ];
@@ -48,7 +53,7 @@ const WhyChooseUs = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-bigebrains-darkblue mb-4">Why Choose BigeBrains</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We're committed to providing the highest quality education to help you succeed. Here's what sets us apart:
+            We combine the power of human expertise with intelligent technologies to deliver a smarter, more effective learning experience.
           </p>
         </div>
 
