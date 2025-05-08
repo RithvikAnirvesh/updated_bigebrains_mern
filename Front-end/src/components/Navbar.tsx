@@ -33,11 +33,14 @@ const Navbar = () => {
                 }
               }}
             >
-              <img
-                src="/lovable-uploads/bbe.png"
-                alt="BigEBrains Logo"
-                className="h-10 mr-2"
-              />
+              <div className="h-10 flex items-center overflow-visible">
+                <img
+                  src="/lovable-uploads/whitebeb.png"
+                  alt="BigEBrains Logo"
+                  className="h-10 mr-2 -my-3" 
+                  
+                />
+              </div>
             </Link>
           </div>
 
@@ -131,8 +134,9 @@ const Navbar = () => {
             <Link to="/about" className="text-gray-600 hover:text-bigebrains-blue font-medium">
               About Us
             </Link>
-            <Link to="/case-studies" className="text-gray-600 hover:text-bigebrains-blue font-medium">
-              Case Studies
+            {/* Updated to point to the correct path for WhyBigEBrains */}
+            <Link to="/why-bigebrains" className="text-gray-600 hover:text-bigebrains-blue font-medium">
+              Why BigEBrains
             </Link>
           </div>
 
@@ -177,15 +181,17 @@ const Navbar = () => {
               <Link to="/about" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
                 About Us
               </Link>
-              <Link to="/case-studies" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
-                Case Studies
+              {/* Updated mobile menu link to point to the correct path */}
+              <Link to="/why-bigebrains" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
+                Why BigEBrains
               </Link>
+             
               <Link to="/contact" className="text-gray-600 hover:text-bigebrains-blue font-medium py-2" onClick={toggleMenu}>
                 Contact Us
               </Link>
             </div>
           </div>
-        )}
+        )} 
       </div>
     </nav>
   );
