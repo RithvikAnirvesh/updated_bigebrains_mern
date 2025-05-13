@@ -2,21 +2,21 @@ import React from "react";
 
 const timelineData = [
   {
-    title: "The Beginning",
-    text: "The Ideologic journey began in 1985 when two college friends, John Sohan and Erik Klippemann got together and started selling computers and engineering calculators.",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=60", // startup teamwork
+    title: "Who We Are",
+    text: "Big E Brains is a leading provider of AI Training, Talent Placement, Staff Augmentation, and AI Project Delivery. We help companies build future-ready teams and deploy intelligent solutions across diverse industries. We are redefining the future of work and innovation through the transformative power of Artificial Intelligence—empowering both individuals and businesses to thrive in a technology-first world.",
+    image: "/lovable-uploads/about.webp",
     side: "right",
   },
   {
-    title: "Mission",
-    text: "At Ideologic we're on a mission to bring together the personal service of local IT providers with the power of a national network. Our office offers high-touch IT services that clients love from highly experienced local team members.",
-    image: "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&w=800&q=60", // professional women meeting
+    title: "Our Mission",
+    text: "At Big E Brains, our mission is to empower nonprofits by harnessing advanced AI technology to streamline recruitment processes. We aim to ensure precise talent matching, reduce time-to-fill, and promote equitable hiring practices, enabling organizations to build agile, compliant, and diverse teams while focusing more on their mission and less on administrative tasks.",
+    image: "/lovable-uploads/mission.webp",
     side: "left",
   },
   {
-    title: "We are global",
-    text: "Our national network allows us to offer best-in-class services like dedicated vCIOs, specialized security and compliance advisory services, a 24/7 help desk, and more.",
-    image: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Introduction_To_The_Heuristic_Function_In_AI.jpg", // global team/tech
+    title: "Our Vision",
+    text: "Our vision is to be the leading partner for nonprofits in revolutionizing recruitment through AI-driven solutions. We aspire to create a future where every nonprofit can effortlessly connect with the right talent, fostering inclusive and efficient teams that drive meaningful impact in their communities.",
+    image: "/lovable-uploads/vision.webp",
     side: "right",
   },
 ];
@@ -27,9 +27,11 @@ const About = () => {
       <div className="text-center mb-16">
         <span className="uppercase text-sm text-gray-500 tracking-widest">About Us</span>
         <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mt-2">
-          Dedicated to delivering excellence
+          Empowering Innovation Through AI
         </h1>
-        <p className="mt-4 text-gray-500 text-sm"></p>
+        <p className="mt-4 text-gray-500 text-sm">
+          Building future-ready teams and delivering intelligent solutions
+        </p>
       </div>
 
       <div className="relative border-l-2 border-gray-300 ml-4 md:ml-1">
@@ -56,7 +58,7 @@ const About = () => {
       </div>
 
       <div className="text-xs text-center text-gray-400 mt-12 max-w-4xl mx-auto">
-        We understand that businesses can be chaotic. That’s where we come in. We’re focused on adding some much-needed balance to the mix. We accomplish that by forging rock-solid partnerships with our clients. When you work with us, you’re working with a team who understands your pain points and your goals. We’ll help you find order in the midst of the chaos.
+        At Big E Brains, we understand that the future of work is being reshaped by artificial intelligence. We're committed to helping organizations navigate this transformation by providing cutting-edge AI solutions, expert talent, and comprehensive training. Our focus is on creating sustainable, efficient, and innovative workplaces where technology enhances human potential and drives meaningful progress.
       </div>
     </div>
   );

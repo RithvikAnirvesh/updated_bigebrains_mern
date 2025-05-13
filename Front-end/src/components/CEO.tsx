@@ -6,7 +6,13 @@ const leadershipData = [
   {
     name: "Surya Kumar",
     title: "CEO & Managing Director | BigEBrains",
-    image: "/lovable-uploads/ceo.jpg",
+    image: "/lovable-uploads/Suryasir.webp",
+    quote: "We look forward to supercharging our growth with optimism and confidence, ready to seize the many opportunities ahead. Our growth strategy for the emerging digital and AI future is built on five strategic objectives."
+  },
+  {
+    name: "Mohan",
+    title: "CEO & Managing Director | BigEBrains",
+    image: "/lovable-uploads/mohansir.webp",
     quote: "We look forward to supercharging our growth with optimism and confidence, ready to seize the many opportunities ahead. Our growth strategy for the emerging digital and AI future is built on five strategic objectives."
   },
   {

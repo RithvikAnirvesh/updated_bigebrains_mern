@@ -17,7 +17,7 @@ const Index = () => {
         <Solutions />
         <Industries />
         <CEO />
-        <Vendors />
+        {/* <Vendors /> */}
         <ContactForm />
       </main>
       <Footer />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrainCog, Users, Cloud, Network } from "lucide-react"; // BrainCog used as AI symbol
+import { Link } from 'react-router-dom';
 
 const ITChallenges = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -7,25 +8,35 @@ const ITChallenges = () => {
   const challenges = [
     {
       icon: <BrainCog className="h-8 w-8 text-bigebrains-blue" />,
-      title: "AI & Data Intelligence",
-      description: "Leverage AI-powered data centers for real-time analytics, predictive maintenance, and automated data governance, ensuring maximum efficiency and security in every operation."
+      title: "Industry & Manufacturing",
+      description: "Leverage AI-powered data centers for real-time analytics, predictive maintenance, and automated data governance, ensuring maximum efficiency and security in every operation.",
+      link: "/industry-manufacturing#industry-hero"
     },
     {
       icon: <Users className="h-8 w-8 text-bigebrains-blue" />,
-      title: "AI-Enhanced Collaboration",
-      description: "Boost team productivity with intelligent assistants, real-time transcription, smart meeting summaries, and workflow automation—all within a familiar Microsoft Office environment."
+      title: "Transportation & Logistics",
+      description: "Boost team productivity with intelligent assistants, real-time transcription, smart meeting summaries, and workflow automation—all within a familiar Microsoft Office environment.",
+      link: "/transportation-logistics"
     },
     {
       icon: <Cloud className="h-8 w-8 text-bigebrains-blue" />,
-      title: "Cloud Intelligence",
-      description: "Our adaptive AI cloud platforms analyze usage patterns, scale resources dynamically, and secure access with behavior-driven authentication—anytime, anywhere."
+      title: "Medicine and Health Care",
+      description: "Our adaptive AI cloud platforms analyze usage patterns, scale resources dynamically, and secure access with behavior-driven authentication—anytime, anywhere.",
+      link: "/medicine-healthcare"
     },
     {
       icon: <Network className="h-8 w-8 text-bigebrains-blue" />,
-      title: "Smart Network & Connectivity",
-      description: "AI-optimized network configurations ensure low-latency communication, dynamic bandwidth allocation, and real-time anomaly detection across your entire digital infrastructure."
+      title: "Banks & Insurance",
+      description: "AI-optimized network configurations ensure low-latency communication, dynamic bandwidth allocation, and real-time anomaly detection across your entire digital infrastructure.",
+      link: "/banks-insurance"
     }
   ];
+
+  // Function to handle click and scroll to top of page when navigating
+  const handleChallengeClick = (index) => {
+    setActiveTab(index);
+    // The actual scrolling will happen via the hash in the URL
+  };
 
   return (
     <section className="py-20 bg-white">
@@ -39,14 +50,15 @@ const ITChallenges = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex flex-col space-y-2">
             {challenges.map((challenge, index) => (
-              <button
+              <Link
                 key={index}
+                to={challenge.link}
                 className={`flex items-start p-6 rounded-lg text-left transition-colors ${
                   activeTab === index 
                     ? "bg-bigebrains-blue text-white" 
                     : "bg-gray-100 hover:bg-gray-200 text-gray-700"
                 }`}
-                onClick={() => setActiveTab(index)}
+                onClick={() => handleChallengeClick(index)}
               >
                 <div className={`mr-4 ${activeTab === index ? "text-white" : "text-bigebrains-blue"}`}>
                   {challenge.icon}
@@ -54,7 +66,7 @@ const ITChallenges = () => {
                 <div>
                   <h3 className="text-xl font-semibold mb-2">{challenge.title}</h3>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -65,9 +77,12 @@ const ITChallenges = () => {
             <p className="text-gray-600 mb-6">
               {challenges[activeTab].description}
             </p>
-            <a href="#" className="text-bigebrains-blue font-medium inline-flex items-center">
+            <Link 
+              to={challenges[activeTab].link}
+              className="text-bigebrains-blue font-medium inline-flex items-center"
+            >
               Learn more
-            </a>
+            </Link>
 
             <div className="mt-8">
               <img 
