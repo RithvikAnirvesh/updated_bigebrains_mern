@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -9,19 +10,19 @@ const RecruitmentProcess: React.FC = () => {
 
   return (
     <>
-     
+      {/* Image appears at the top of the page */}
+      <div className="w-full h-[300px] overflow-hidden">
+        <img
+          src="\lovable-uploads\recruitment-process.webp"
+          alt="Recruitment Process Outsourcing"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
 
       <div className="container mx-auto px-4 md:px-8 py-10">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Main Content */}
           <div className="flex-1 bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-[300px] overflow-hidden">
-              <img
-                src="/lovable-uploads/recruitment-process.webp"
-                alt="Recruitment Process Outsourcing"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
             <div className="p-6">
               <h1 className="text-2xl font-bold text-blue-600 mb-4">
                 Recruitment Process Outsourcing

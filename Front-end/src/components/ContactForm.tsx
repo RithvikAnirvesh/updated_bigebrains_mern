@@ -19,22 +19,48 @@ const ContactForm = () => {
   });
 
   const [status, setStatus] = useState('');
+  const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    company: '',
+    email: '',
+    phone: '',
+    helpType: '',
+    message: ''
+  });
+
+  const validate = () => {
+    const newErrors: any = {};
+    if (!formData.firstName.trim()) newErrors.firstName = 'Enter your first name';
+    if (!formData.lastName.trim()) newErrors.lastName = 'Enter your last name';
+    if (!formData.company.trim()) newErrors.company = 'Enter your company/organization';
+    if (!formData.email.trim()) newErrors.email = 'Enter your email';
+    if (!formData.phone.trim()) newErrors.phone = 'Enter your phone number';
+    if (!formData.helpType || formData.helpType === 'Select option*') newErrors.helpType = 'Select a help type';
+    if (!formData.message.trim()) newErrors.message = 'Enter your message';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+    setErrors({ ...errors, [e.target.id]: '' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setStatus("");
+    if (!validate()) {
+      setStatus("Please fill in all required fields.");
+      return;
+    }
     setStatus("Sending...");
-
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/contacts/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
       if (res.ok) {
         setStatus("Submitted successfully! Check your email.");
         setFormData({
@@ -46,6 +72,22 @@ const ContactForm = () => {
           helpType: '',
           message: ''
         });
+        setErrors({
+          firstName: '',
+          lastName: '',
+          company: '',
+          email: '',
+          phone: '',
+          helpType: '',
+          message: ''
+        });
+      } else if (res.status === 400) {
+        const data = await res.json();
+        if (data.error === 'Email does not exist') {
+          setStatus('');
+          alert('The email address does not exist. Please enter a valid company email.');
+          return;
+        }
       } else {
         setStatus("Failed to submit. Please try again.");
       }
@@ -126,26 +168,31 @@ const ContactForm = () => {
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First name</Label>
                     <Input id="firstName" value={formData.firstName} onChange={handleChange} />
+                    {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last name</Label>
                     <Input id="lastName" value={formData.lastName} onChange={handleChange} />
+                    {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="company">Company / Organization</Label>
                   <Input id="company" value={formData.company} onChange={handleChange} />
+                  {errors.company && <p className="text-red-500 text-xs mt-1">{errors.company}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="email">Company email</Label>
                   <Input id="email" type="email" value={formData.email} onChange={handleChange} />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone</Label>
                   <Input id="phone" type="tel" value={formData.phone} onChange={handleChange} />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -163,6 +210,7 @@ const ContactForm = () => {
                     <option>Mobile Development</option>
                     <option>Cloud Services</option>
                   </select>
+                  {errors.helpType && <p className="text-red-500 text-xs mt-1">{errors.helpType}</p>}
                 </div>
 
                 <div className="space-y-2">
@@ -174,6 +222,7 @@ const ContactForm = () => {
                     value={formData.message}
                     onChange={handleChange}
                   />
+                  {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
                 </div>
 
                 <Button type="submit" className="w-full bg-bigebrains-blue hover:bg-bigebrains-darkblue text-white">

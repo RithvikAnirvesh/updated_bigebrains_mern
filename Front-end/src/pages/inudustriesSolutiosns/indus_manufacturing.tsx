@@ -7,47 +7,28 @@ const IndustriesManufacturing: React.FC = () => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
+
   return (
-    <>
-      {/* Added Navbar component here */}
-    
-      
-      <div className="container mx-auto px-4 md:px-8 py-10">
+    <div>
+
+      {/* Hero Section with Sidebar */}
+      <div className="container mx-auto px-4 md:px-8 pt-6">
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Main Content */}
-          <div className="flex-1 bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-[400px] overflow-hidden">
-              <img
-                src="/lovable-uploads/industy.webp"
-                alt="AI in Industry & Manufacturing"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-            <div className="p-6">
-              <h1 className="text-2xl font-bold text-blue-600 mb-4">
-                AI in Industry & Manufacturing
-              </h1>
-              <p className="text-gray-700 mb-4">
-                Artificial Intelligence (AI) is transforming industries worldwide by enabling smarter decision-making, automation, and innovation. In the Automotive & Manufacturing sector, AI is reshaping operations through self-driving vehicles, predictive maintenance, advanced robotics, supply chain automation, and sophisticated quality control systems.
-              </p>
-              <p className="text-gray-700 mb-4">
-                Our AI solutions enable real-time monitoring of equipment health, anomaly detection, and automated quality control, helping businesses reduce waste and improve product consistency. Predictive analytics also allows manufacturers to anticipate machine failures before they happen, while robotics and automation streamline production processes.
-              </p>
-              <p className="text-gray-700 mb-6">
-                Partner with us to build intelligent manufacturing systems that adapt and learn from data — transforming traditional operations into competitive, future-ready infrastructures powered by cutting-edge AI technology.
-              </p>
-              <Link
-                to="/contact"
-                className="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300"
-              >
-                Contact Us
-              </Link>
-            </div>
+          {/* Left Image */}
+          <div className="flex-1 h-[400px] overflow-hidden rounded-lg shadow-md">
+            <img
+              src="/lovable-uploads/industy.webp"
+              alt="AI in Industry & Manufacturing"
+              className="w-full h-full object-cover object-center"
+            />
           </div>
 
-          {/* AI-Powered Industry Links Sidebar */}
-          <div className="w-full md:w-72">
-            <div className="bg-white rounded-lg shadow-md p-4">
+          {/* Right Sidebar */}
+          <div className="w-full md:w-80">
+            <div className="bg-white rounded-lg shadow-md p-4 h-full">
               <h2 className="text-lg font-semibold text-blue-600 mb-4 border-b pb-2">
                 AI-Powered Industries
               </h2>
@@ -118,8 +99,32 @@ const IndustriesManufacturing: React.FC = () => {
         </div>
       </div>
 
+      {/* Text Content Section */}
+      <div className="container mx-auto px-4 md:px-8 py-10">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden p-6">
+          <h1 className="text-2xl font-bold text-blue-600 mb-4">
+            AI in Industry & Manufacturing
+          </h1>
+          <p className="text-gray-700 mb-4">
+            Artificial Intelligence (AI) is transforming industries worldwide by enabling smarter decision-making, automation, and innovation. In the Automotive & Manufacturing sector, AI is reshaping operations through self-driving vehicles, predictive maintenance, advanced robotics, supply chain automation, and sophisticated quality control systems.
+          </p>
+          <p className="text-gray-700 mb-4">
+            Our AI solutions enable real-time monitoring of equipment health, anomaly detection, and automated quality control, helping businesses reduce waste and improve product consistency. Predictive analytics also allows manufacturers to anticipate machine failures before they happen, while robotics and automation streamline production processes.
+          </p>
+          <p className="text-gray-700 mb-6">
+            Partner with us to build intelligent manufacturing systems that adapt and learn from data — transforming traditional operations into competitive, future-ready infrastructures powered by cutting-edge AI technology.
+          </p>
+          <Link
+            to="/contact"
+            className="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition duration-300"
+          >
+            Contact Us
+          </Link>
+        </div>
+      </div>
+
       <Footer />
-    </>
+    </div>
   );
 };
 

@@ -18,7 +18,7 @@ const StaffingServices: React.FC = () => {
           {/* Main Content */}
           <div className="flex-1 bg-white rounded-lg shadow-md overflow-hidden">
             <img
-              src="/lovable-uploads/staffing-services.jpg"
+              src="/lovable-uploads/staffing-services.webp"
               alt="Staffing Services"
               className="w-full h-60 object-cover"
             />
