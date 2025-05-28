@@ -57,6 +57,7 @@ const App = () => (
           <Route path="/testimonials" element={<Testimonials />} /> {/* Add the new route */}
           <Route path="/indus" element={<Indus />} /> {/* Add the route for Industries */}
           <Route path="/contact" element={<ContactForm />} />
+          <Route path="/staffing-services" element={<StaffingServices />} />
           
 
           <Route path="/recruitment-process" element={<RecruitmentProcess />} />

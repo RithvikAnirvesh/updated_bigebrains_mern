@@ -44,90 +44,105 @@ const BFSI: React.FC = () => {
             </div>
           </div>
 
-          {/* Services Sidebar */}
+          {/* Enhanced Services Sidebar */}
           <div className="w-full md:w-72">
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-lg font-semibold text-blue-600 mb-4 border-b pb-2">
-                Services
-              </h2>
-
-              {/* IT Staffing Section */}
-              <div className="mb-4">
-                <h3 className="text-md font-semibold text-gray-800 mb-2">
-                  IT Staffing
-                </h3>
-                <div className="flex flex-col space-y-2">
-                  <Link
-                    to="/recruitment-process"
-                    className={`px-4 py-2 rounded-md text-sm text-center ${
-                      isActive("/recruitment-process")
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "bg-gray-100 hover:bg-gray-200"
-                    }`}
-                  >
-                    Recruitment Process
-                  </Link>
-
-                  <Link
-                    to="/training-deployment"
-                    className={`px-4 py-2 rounded-md text-sm text-center ${
-                      isActive("/training-deployment")
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "bg-gray-100 hover:bg-gray-200"
-                    }`}
-                  >
-                    Training and Development
-                  </Link>
-                </div>
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              {/* Main Services Header */}
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4">
+                <h2 className="text-xl font-bold text-white tracking-wide">
+                  Services
+                </h2>
               </div>
 
-              {/* Non-IT Staffing Section */}
-              <div>
-                <h3 className="text-md font-semibold text-gray-800 mb-2">
-                  Non-IT Staffing
-                </h3>
-                <div className="flex flex-col space-y-2">
-                  <Link
-                    to="/bfsi"
-                    className={`px-4 py-2 rounded-md text-sm text-center ${
-                      isActive("/bfsi")
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "bg-gray-100 hover:bg-gray-200"
-                    }`}
-                  >
-                    Banking, Financial Services and Insurance (BFSI)
-                  </Link>
-                  <Link
-                    to="/engineering-technical-services"
-                    className={`px-4 py-2 rounded-md text-sm text-center ${
-                        isActive("/engineering-technical-services")
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "bg-gray-100 hover:bg-gray-200"
-                    }`}
+              <div className="p-4">
+                {/* IT Staffing Section */}
+                <div className="mb-6">
+                  <div className="relative mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 pb-2 relative">
+                      IT Staffing
+                      <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-blue-600"></div>
+                    </h3>
+                  </div>
+                  
+                  <div className="flex flex-col space-y-2 ml-2">
+                    <Link
+                      to="/recruitment-process"
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive("/recruitment-process")
+                          ? "bg-blue-600 text-white shadow-md transform scale-105"
+                          : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:shadow-sm"
+                      }`}
                     >
-                    Engineering Technical Services
+                      Recruitment Process
                     </Link>
 
-                  <Link
-                    to="/construction"
-                    className={`px-4 py-2 rounded-md text-sm text-center ${
-                      isActive("/construction")
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "bg-gray-100 hover:bg-gray-200"
-                    }`}
-                  >
-                    Construction
-                  </Link>
-                  <Link
-                    to="/healthcare"
-                    className={`px-4 py-2 rounded-md text-sm text-center ${
-                      isActive("/healthcare")
-                        ? "bg-blue-600 text-white font-semibold"
-                        : "bg-gray-100 hover:bg-gray-200"
-                    }`}
-                  >
-                    Healthcare
-                  </Link>
+                    <Link
+                      to="/training-deployment"
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive("/training-deployment")
+                          ? "bg-blue-600 text-white shadow-md transform scale-105"
+                          : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:shadow-sm"
+                      }`}
+                    >
+                      Training and Development
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Non-IT Staffing Section */}
+                <div>
+                  <div className="relative mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 pb-2 relative">
+                      Non-IT Staffing
+                      <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-blue-600"></div>
+                    </h3>
+                  </div>
+                  
+                  <div className="flex flex-col space-y-2 ml-2">
+                    <Link
+                      to="/bfsi"
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive("/bfsi")
+                          ? "bg-blue-600 text-white shadow-md transform scale-105"
+                          : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:shadow-sm"
+                      }`}
+                    >
+                      Banking, Financial Services and Insurance (BFSI)
+                    </Link>
+                    
+                    <Link
+                      to="/engineering-technical-services"
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive("/engineering-technical-services")
+                          ? "bg-blue-600 text-white shadow-md transform scale-105"
+                          : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:shadow-sm"
+                      }`}
+                    >
+                      Engineering Technical Services
+                    </Link>
+
+                    <Link
+                      to="/construction"
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive("/construction")
+                          ? "bg-blue-600 text-white shadow-md transform scale-105"
+                          : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:shadow-sm"
+                      }`}
+                    >
+                      Construction
+                    </Link>
+                    
+                    <Link
+                      to="/healthcare"
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                        isActive("/healthcare")
+                          ? "bg-blue-600 text-white shadow-md transform scale-105"
+                          : "bg-gray-50 text-gray-700 hover:bg-blue-50 hover:text-blue-700 hover:shadow-sm"
+                      }`}
+                    >
+                      Healthcare
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -139,5 +154,4 @@ const BFSI: React.FC = () => {
     </>
   );
 };
-
 export default BFSI;

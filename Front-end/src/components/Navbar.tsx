@@ -21,13 +21,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm py-4 sticky top-0 z-50 w-full max-w-full overflow-x-hidden">
-      <div className="container mx-auto px-4 md:px-6 w-full max-w-full overflow-x-hidden">
-        <div className="flex justify-between items-center w-full max-w-full overflow-x-hidden">
+    <nav className="bg-white shadow-sm py-4 sticky top-0 z-50">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center max-w-full"
+            className="flex items-center"
             onClick={(e) => {
               if (window.location.pathname === "/") {
                 e.preventDefault();
@@ -35,12 +35,11 @@ const Navbar = () => {
               }
             }}
           >
-            <div className="h-10 flex items-center overflow-visible max-w-full">
+            <div className="h-10 flex items-center overflow-visible">
               <img
                 src="/lovable-uploads/whitebeb.png"
                 alt="BigEBrains Logo"
-                className="h-10 mr-2 -my-3 max-w-full w-auto"
-                style={{ maxWidth: '120px', height: 'auto' }}
+                className="h-10 mr-2 -my-3"
               />
             </div>
           </Link>
