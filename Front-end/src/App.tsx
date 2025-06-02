@@ -39,6 +39,8 @@ import IndustriesMedicine from "./pages/inudustriesSolutiosns/indus_medicne.tsx"
 import IndustriesBanks from "./pages/inudustriesSolutiosns/indus_banks.tsx";
 import IndustriesConsulting from "./pages/inudustriesSolutiosns/indus_consulting.tsx";
 import IndustriesNonProfit from "./pages/inudustriesSolutiosns/indus_nonprofit.tsx";
+import Chatbot from '@/components/Chatbot';
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -85,6 +87,8 @@ const App = () => (
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        {/* <ScrollToTop /> */}
+        <Chatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -6,17 +6,12 @@ import {
   FaFacebook,
   FaTwitter,
   FaYoutube,
-  FaAngleDoubleUp,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const googleMapsUrl = `https://www.google.com/search?q=17.450491718845207%2C+78.38705545303921&sourceid=chrome&ie=UTF-8`;
 
   const socialLinks = {
@@ -126,15 +121,6 @@ const Footer = () => {
           <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-white" aria-label="YouTube"><FaYoutube /></a>
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg transition duration-300 z-50"
-        aria-label="Scroll to top"
-      >
-        <FaAngleDoubleUp className="w-4 h-4" />
-      </button>
     </footer>
   );
 };
