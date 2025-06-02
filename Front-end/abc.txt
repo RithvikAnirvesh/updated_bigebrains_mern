@@ -1,5 +1,0 @@
-import java .util*;
-Class Main{
-    psvm()
-
-}
