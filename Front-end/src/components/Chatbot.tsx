@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Lottie from 'lottie-web';
 import arrowanimation from "../asserts/animations/arrow.json";
+import { useVoiceRecognition } from '../hooks/useVoiceRecognition';
 
 
 interface ChatOption {
@@ -153,6 +154,7 @@ const Chatbot = () => {
   const [minimized, setMinimized] = useState(false);
   const [fontSize, setFontSize] = useState<'small' | 'default' | 'large'>('default');
   const [showEndDialog, setShowEndDialog] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const sendButtonRef = useRef<HTMLDivElement>(null);
   const lottieInstanceRef = useRef<any>(null);
@@ -176,9 +178,13 @@ const Chatbot = () => {
       lottieInstanceRef.current = Lottie.loadAnimation({
         container: sendButtonRef.current,
         renderer: 'svg',
-        loop: true,
-        autoplay: true,
+        loop: false,
+        autoplay: false,
         animationData: arrowanimation,
+      });
+
+      lottieInstanceRef.current.addEventListener('complete', () => {
+        setIsAnimating(false);
       });
     }
 
@@ -209,6 +215,12 @@ const Chatbot = () => {
 
   const handleSend = async () => {
     if (!inputValue.trim()) return;
+
+    // Start animation
+    setIsAnimating(true);
+    if (lottieInstanceRef.current) {
+      lottieInstanceRef.current.goToAndPlay(0);
+    }
 
     setMessages(prev => [...prev, { text: inputValue, sender: 'user' } as ChatMessage]);
     setInputValue('');
@@ -264,6 +276,28 @@ const Chatbot = () => {
     setShowEndDialog(false);
     setIsOpen(false);
   };
+
+  const findMatchingOption = (text: string): ChatOption | undefined => {
+    const normalizedText = text.toLowerCase();
+    return menuMessage.options?.find(option => {
+      const normalizedOption = option.text.toLowerCase();
+      return normalizedText.includes(normalizedOption) || 
+             normalizedOption.includes(normalizedText);
+    });
+  };
+
+  const handleVoiceInput = useCallback((text: string) => {
+    const matchingOption = findMatchingOption(text);
+    if (matchingOption) {
+      handleOptionSelect(matchingOption);
+    } else {
+      setInputValue(text);
+      handleSend();
+    }
+  }, []);
+
+  const { isListening, startListening, stopListening, browserSupportsSpeechRecognition } = 
+    useVoiceRecognition(handleVoiceInput);
 
   return (
     <div className="fixed bottom-3 right-5 z-40">
@@ -407,6 +441,7 @@ const Chatbot = () => {
               <button
                 onClick={handleSend}
                 className="absolute right-2 top-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center transition-transform hover:scale-110"
+                disabled={isAnimating}
               >
                 <div ref={sendButtonRef} className="w-12 h-12" />
               </button>
@@ -414,18 +449,34 @@ const Chatbot = () => {
 
             {/* Navigation and Footer */}
             <div className="mt-2">
-              <div className="flex justify-around py-1.5 border-t border-gray-200">
+              <div className="flex justify-center gap-8 py-1.5 border-t border-gray-200">
                 <button className="flex flex-col items-center text-blue-600">
                   <span className="text-base">💬</span>
                   <span className="text-[8px] mt-0.5">Chat</span>
                 </button>
-                <button className="flex flex-col items-center text-gray-400">
-                  <span className="text-base">🎤</span>
-                  <span className="text-[8px] mt-0.5">Voice</span>
-                </button>
-                <button className="flex flex-col items-center text-gray-400">
-                  <span className="text-base">📃</span>
-                  <span className="text-[8px] mt-0.5">History</span>
+                <button 
+                  onClick={async () => {
+                    if (isListening) {
+                      stopListening();
+                    } else {
+                      await startListening();
+                    }
+                  }}
+                  disabled={!browserSupportsSpeechRecognition}
+                  className={`flex flex-col items-center ${
+                    !browserSupportsSpeechRecognition ? 'opacity-50 cursor-not-allowed text-gray-400' : 
+                    isListening ? 'text-red-500 animate-pulse' : 'text-gray-400 hover:text-gray-600'
+                  }`}
+                >
+                  <span className="text-base">{isListening ? '🔴' : '🎤'}</span>
+                  <span className="text-[8px] mt-0.5">
+                    {!browserSupportsSpeechRecognition 
+                      ? 'Not supported' 
+                      : isListening 
+                        ? 'Listening...' 
+                        : 'Voice'
+                    }
+                  </span>
                 </button>
               </div>
               <div className="text-center text-[8px] text-gray-500 mt-1.5">
